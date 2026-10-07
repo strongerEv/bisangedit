@@ -10,6 +10,8 @@
     "upgrade": "remotion upgrade"
   },
   "dependencies": {
+    "@fontsource/inter-tight": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
     "@remotion/cli": "^4.0.534",
     "@remotion/transitions": "^4.0.534",
     "react": "^19.3.0",
