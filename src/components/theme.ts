@@ -7,6 +7,9 @@ export const theme = {
     bg: "#F7F8FA",
     text: "#111111",
     accent: "#3B6FF6",
+    // Merah dari logo brand (public/brand/logo.png).
+    brand: "#F20D0D",
+    brandSoft: "#FDE3E3",
     muted: "#6B7079",
     line: "#D5D9E0",
     card: "#FFFFFF",

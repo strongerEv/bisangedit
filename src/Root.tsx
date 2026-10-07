@@ -3,6 +3,9 @@ import { Composition } from "remotion";
 import "./components/fonts";
 import { theme } from "./components/theme";
 import { CaraBikinnya } from "./videos/cara-bikinnya";
+import { IklanWebApp } from "./videos/iklan-web-app";
+import { IklanStyleTest, STYLE_TEST_FRAMES } from "./videos/iklan-web-app/StyleTest";
+import { DURATION as IKLAN_DURATION, FPS as IKLAN_FPS } from "./videos/iklan-web-app/timeline";
 import { DURATION as CARA_DURATION, FPS as CARA_FPS } from "./videos/cara-bikinnya/timeline";
 import { RockyWantimpres } from "./videos/rocky-wantimpres";
 import { DURATION as ROCKY_DURATION, FPS as ROCKY_FPS } from "./videos/rocky-wantimpres/timeline";
@@ -24,6 +27,22 @@ export const RemotionRoot: React.FC = () => {
         component={CaraBikinnya}
         durationInFrames={CARA_DURATION}
         fps={CARA_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="IklanWebApp"
+        component={IklanWebApp}
+        durationInFrames={IKLAN_DURATION}
+        fps={IKLAN_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="IklanWebApp-UjiGaya"
+        component={IklanStyleTest}
+        durationInFrames={STYLE_TEST_FRAMES * 60}
+        fps={30}
         width={theme.width}
         height={theme.height}
       />
