@@ -11,6 +11,8 @@ export const theme = {
     line: "#D5D9E0",
     card: "#FFFFFF",
     onDark: "#F7F8FA",
+    code: "#1B1C20",
+    codeMuted: "#8A8F98",
     shadow: "rgba(17, 17, 17, 0.08)",
   },
   fonts: {
