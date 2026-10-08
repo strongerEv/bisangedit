@@ -7,6 +7,8 @@ import { IklanWebApp } from "./videos/iklan-web-app";
 import { RockyPakar } from "./videos/rocky-pakar";
 import { DURATION as PAKAR_DURATION, FPS as PAKAR_FPS } from "./videos/rocky-pakar/timeline";
 import { TutorialClaudeCode } from "./videos/tutorial-claude-code";
+import { TutorialCodex } from "./videos/tutorial-codex";
+import { DURATION as CODEX_DURATION, FPS as CODEX_FPS } from "./videos/tutorial-codex/timeline";
 import { DURATION as TUTOR_DURATION, FPS as TUTOR_FPS } from "./videos/tutorial-claude-code/timeline";
 import { IklanStyleTest, STYLE_TEST_FRAMES } from "./videos/iklan-web-app/StyleTest";
 import { DURATION as IKLAN_DURATION, FPS as IKLAN_FPS } from "./videos/iklan-web-app/timeline";
@@ -55,6 +57,14 @@ export const RemotionRoot: React.FC = () => {
         component={RockyPakar}
         durationInFrames={PAKAR_DURATION}
         fps={PAKAR_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="TutorialCodex"
+        component={TutorialCodex}
+        durationInFrames={CODEX_DURATION}
+        fps={CODEX_FPS}
         width={theme.width}
         height={theme.height}
       />
