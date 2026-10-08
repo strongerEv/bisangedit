@@ -4,6 +4,8 @@ import "./components/fonts";
 import { theme } from "./components/theme";
 import { CaraBikinnya } from "./videos/cara-bikinnya";
 import { IklanWebApp } from "./videos/iklan-web-app";
+import { RockyPakar } from "./videos/rocky-pakar";
+import { DURATION as PAKAR_DURATION, FPS as PAKAR_FPS } from "./videos/rocky-pakar/timeline";
 import { TutorialClaudeCode } from "./videos/tutorial-claude-code";
 import { DURATION as TUTOR_DURATION, FPS as TUTOR_FPS } from "./videos/tutorial-claude-code/timeline";
 import { IklanStyleTest, STYLE_TEST_FRAMES } from "./videos/iklan-web-app/StyleTest";
@@ -45,6 +47,14 @@ export const RemotionRoot: React.FC = () => {
         component={TutorialClaudeCode}
         durationInFrames={TUTOR_DURATION}
         fps={TUTOR_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="RockyPakar"
+        component={RockyPakar}
+        durationInFrames={PAKAR_DURATION}
+        fps={PAKAR_FPS}
         width={theme.width}
         height={theme.height}
       />
