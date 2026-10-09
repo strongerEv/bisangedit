@@ -6,6 +6,8 @@ import { CaraBikinnya } from "./videos/cara-bikinnya";
 import { CaraRemotion } from "./videos/cara-remotion";
 import { DURATION as CR_DURATION, FPS as CR_FPS } from "./videos/cara-remotion/timeline";
 import { Fastreng } from "./videos/fastreng";
+import { Makaryo } from "./videos/makaryo";
+import { DURATION as MK_DURATION, FPS as MK_FPS } from "./videos/makaryo/timeline";
 import { DURATION as FR_DURATION, FPS as FR_FPS } from "./videos/fastreng/timeline";
 import { IklanWebApp } from "./videos/iklan-web-app";
 import { KucingJatuh } from "./videos/kucing-jatuh";
@@ -81,6 +83,14 @@ export const RemotionRoot: React.FC = () => {
         component={Fastreng}
         durationInFrames={FR_DURATION}
         fps={FR_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Makaryo"
+        component={Makaryo}
+        durationInFrames={MK_DURATION}
+        fps={MK_FPS}
         width={theme.width}
         height={theme.height}
       />
