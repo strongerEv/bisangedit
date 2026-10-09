@@ -5,6 +5,8 @@ import { theme } from "./components/theme";
 import { CaraBikinnya } from "./videos/cara-bikinnya";
 import { CaraRemotion } from "./videos/cara-remotion";
 import { DURATION as CR_DURATION, FPS as CR_FPS } from "./videos/cara-remotion/timeline";
+import { Fastreng } from "./videos/fastreng";
+import { DURATION as FR_DURATION, FPS as FR_FPS } from "./videos/fastreng/timeline";
 import { IklanWebApp } from "./videos/iklan-web-app";
 import { KucingJatuh } from "./videos/kucing-jatuh";
 import { DURATION as KJ_DURATION, FPS as KJ_FPS } from "./videos/kucing-jatuh/timeline";
@@ -71,6 +73,14 @@ export const RemotionRoot: React.FC = () => {
         component={TutorialCodex}
         durationInFrames={CODEX_DURATION}
         fps={CODEX_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Fastreng"
+        component={Fastreng}
+        durationInFrames={FR_DURATION}
+        fps={FR_FPS}
         width={theme.width}
         height={theme.height}
       />
