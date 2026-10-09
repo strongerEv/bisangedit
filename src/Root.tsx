@@ -4,6 +4,10 @@ import "./components/fonts";
 import { theme } from "./components/theme";
 import { CaraBikinnya } from "./videos/cara-bikinnya";
 import { IklanWebApp } from "./videos/iklan-web-app";
+import { KucingJatuh } from "./videos/kucing-jatuh";
+import { DURATION as KJ_DURATION, FPS as KJ_FPS } from "./videos/kucing-jatuh/timeline";
+import { KucingJatuhTes } from "./videos/kucing-jatuh-tes";
+import { DURATION as KUCING_DURATION, FPS as KUCING_FPS } from "./videos/kucing-jatuh-tes/timeline";
 import { RockyPakar } from "./videos/rocky-pakar";
 import { DURATION as PAKAR_DURATION, FPS as PAKAR_FPS } from "./videos/rocky-pakar/timeline";
 import { TutorialClaudeCode } from "./videos/tutorial-claude-code";
@@ -65,6 +69,22 @@ export const RemotionRoot: React.FC = () => {
         component={TutorialCodex}
         durationInFrames={CODEX_DURATION}
         fps={CODEX_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="KucingJatuh"
+        component={KucingJatuh}
+        durationInFrames={KJ_DURATION}
+        fps={KJ_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="KucingJatuh-Tes"
+        component={KucingJatuhTes}
+        durationInFrames={KUCING_DURATION}
+        fps={KUCING_FPS}
         width={theme.width}
         height={theme.height}
       />
