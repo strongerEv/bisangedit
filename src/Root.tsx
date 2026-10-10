@@ -10,6 +10,8 @@ import { Makaryo } from "./videos/makaryo";
 import { DealerPakAji } from "./videos/dealer-pakaji";
 import { CallBlocker } from "./videos/call-blocker";
 import { Duitku } from "./videos/duitku";
+import { Warkas } from "./videos/warkas";
+import { DURATION as WK_DURATION, FPS as WK_FPS } from "./videos/warkas/timeline";
 import { DURATION as DK_DURATION, FPS as DK_FPS } from "./videos/duitku/timeline";
 import { DURATION as CB_DURATION, FPS as CB_FPS } from "./videos/call-blocker/timeline";
 import { DURATION as DP_DURATION, FPS as DP_FPS } from "./videos/dealer-pakaji/timeline";
@@ -121,6 +123,14 @@ export const RemotionRoot: React.FC = () => {
         component={Duitku}
         durationInFrames={DK_DURATION}
         fps={DK_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Warkas"
+        component={Warkas}
+        durationInFrames={WK_DURATION}
+        fps={WK_FPS}
         width={theme.width}
         height={theme.height}
       />
