@@ -11,6 +11,8 @@ import { DealerPakAji } from "./videos/dealer-pakaji";
 import { CallBlocker } from "./videos/call-blocker";
 import { Duitku } from "./videos/duitku";
 import { Warkas } from "./videos/warkas";
+import { Wismaku } from "./videos/wismaku";
+import { DURATION as WM_DURATION, FPS as WM_FPS } from "./videos/wismaku/timeline";
 import { DURATION as WK_DURATION, FPS as WK_FPS } from "./videos/warkas/timeline";
 import { DURATION as DK_DURATION, FPS as DK_FPS } from "./videos/duitku/timeline";
 import { DURATION as CB_DURATION, FPS as CB_FPS } from "./videos/call-blocker/timeline";
@@ -131,6 +133,14 @@ export const RemotionRoot: React.FC = () => {
         component={Warkas}
         durationInFrames={WK_DURATION}
         fps={WK_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Wismaku"
+        component={Wismaku}
+        durationInFrames={WM_DURATION}
+        fps={WM_FPS}
         width={theme.width}
         height={theme.height}
       />
