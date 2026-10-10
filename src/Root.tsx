@@ -8,6 +8,8 @@ import { DURATION as CR_DURATION, FPS as CR_FPS } from "./videos/cara-remotion/t
 import { Fastreng } from "./videos/fastreng";
 import { Makaryo } from "./videos/makaryo";
 import { DealerPakAji } from "./videos/dealer-pakaji";
+import { CallBlocker } from "./videos/call-blocker";
+import { DURATION as CB_DURATION, FPS as CB_FPS } from "./videos/call-blocker/timeline";
 import { DURATION as DP_DURATION, FPS as DP_FPS } from "./videos/dealer-pakaji/timeline";
 import { DURATION as MK_DURATION, FPS as MK_FPS } from "./videos/makaryo/timeline";
 import { DURATION as FR_DURATION, FPS as FR_FPS } from "./videos/fastreng/timeline";
@@ -101,6 +103,14 @@ export const RemotionRoot: React.FC = () => {
         component={DealerPakAji}
         durationInFrames={DP_DURATION}
         fps={DP_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="CallBlocker"
+        component={CallBlocker}
+        durationInFrames={CB_DURATION}
+        fps={CB_FPS}
         width={theme.width}
         height={theme.height}
       />
