@@ -9,6 +9,8 @@ import { Fastreng } from "./videos/fastreng";
 import { Makaryo } from "./videos/makaryo";
 import { DealerPakAji } from "./videos/dealer-pakaji";
 import { CallBlocker } from "./videos/call-blocker";
+import { Duitku } from "./videos/duitku";
+import { DURATION as DK_DURATION, FPS as DK_FPS } from "./videos/duitku/timeline";
 import { DURATION as CB_DURATION, FPS as CB_FPS } from "./videos/call-blocker/timeline";
 import { DURATION as DP_DURATION, FPS as DP_FPS } from "./videos/dealer-pakaji/timeline";
 import { DURATION as MK_DURATION, FPS as MK_FPS } from "./videos/makaryo/timeline";
@@ -111,6 +113,14 @@ export const RemotionRoot: React.FC = () => {
         component={CallBlocker}
         durationInFrames={CB_DURATION}
         fps={CB_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Duitku"
+        component={Duitku}
+        durationInFrames={DK_DURATION}
+        fps={DK_FPS}
         width={theme.width}
         height={theme.height}
       />
