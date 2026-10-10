@@ -12,6 +12,8 @@ import { CallBlocker } from "./videos/call-blocker";
 import { Duitku } from "./videos/duitku";
 import { Warkas } from "./videos/warkas";
 import { Wismaku } from "./videos/wismaku";
+import { IklanAplikasi } from "./videos/iklan-aplikasi";
+import { DURATION as IA_DURATION, FPS as IA_FPS } from "./videos/iklan-aplikasi/timeline";
 import { DURATION as WM_DURATION, FPS as WM_FPS } from "./videos/wismaku/timeline";
 import { DURATION as WK_DURATION, FPS as WK_FPS } from "./videos/warkas/timeline";
 import { DURATION as DK_DURATION, FPS as DK_FPS } from "./videos/duitku/timeline";
@@ -141,6 +143,14 @@ export const RemotionRoot: React.FC = () => {
         component={Wismaku}
         durationInFrames={WM_DURATION}
         fps={WM_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="IklanAplikasi"
+        component={IklanAplikasi}
+        durationInFrames={IA_DURATION}
+        fps={IA_FPS}
         width={theme.width}
         height={theme.height}
       />
