@@ -14,6 +14,8 @@ import { Warkas } from "./videos/warkas";
 import { Wismaku } from "./videos/wismaku";
 import { IklanAplikasi } from "./videos/iklan-aplikasi";
 import { Fiviz } from "./videos/fiviz";
+import { Ingonentok } from "./videos/ingonentok";
+import { DURATION as IE_DURATION, FPS as IE_FPS } from "./videos/ingonentok/timeline";
 import { DURATION as FV_DURATION, FPS as FV_FPS } from "./videos/fiviz/timeline";
 import { DURATION as IA_DURATION, FPS as IA_FPS } from "./videos/iklan-aplikasi/timeline";
 import { DURATION as WM_DURATION, FPS as WM_FPS } from "./videos/wismaku/timeline";
@@ -161,6 +163,14 @@ export const RemotionRoot: React.FC = () => {
         component={Fiviz}
         durationInFrames={FV_DURATION}
         fps={FV_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Ingonentok"
+        component={Ingonentok}
+        durationInFrames={IE_DURATION}
+        fps={IE_FPS}
         width={theme.width}
         height={theme.height}
       />
