@@ -17,6 +17,8 @@ import { Fiviz } from "./videos/fiviz";
 import { Ingonentok } from "./videos/ingonentok";
 import { MasjidAlmisbah } from "./videos/masjid-almisbah";
 import { DURATION as MA_DURATION, FPS as MA_FPS } from "./videos/masjid-almisbah/timeline";
+import { IklanHastrans } from "./videos/iklan-hastrans";
+import { DURATION as IH_DURATION, FPS as IH_FPS } from "./videos/iklan-hastrans/timeline";
 import { DURATION as IE_DURATION, FPS as IE_FPS } from "./videos/ingonentok/timeline";
 import { DURATION as FV_DURATION, FPS as FV_FPS } from "./videos/fiviz/timeline";
 import { DURATION as IA_DURATION, FPS as IA_FPS } from "./videos/iklan-aplikasi/timeline";
@@ -181,6 +183,14 @@ export const RemotionRoot: React.FC = () => {
         component={MasjidAlmisbah}
         durationInFrames={MA_DURATION}
         fps={MA_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="IklanHastrans"
+        component={IklanHastrans}
+        durationInFrames={IH_DURATION}
+        fps={IH_FPS}
         width={theme.width}
         height={theme.height}
       />
