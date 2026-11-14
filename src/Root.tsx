@@ -18,6 +18,8 @@ import { Ingonentok } from "./videos/ingonentok";
 import { MasjidAlmisbah } from "./videos/masjid-almisbah";
 import { DURATION as MA_DURATION, FPS as MA_FPS } from "./videos/masjid-almisbah/timeline";
 import { IklanHastrans } from "./videos/iklan-hastrans";
+import { PreviewSesandingan } from "./videos/preview-sesandingan";
+import { DURATION as PS_DURATION, FPS as PS_FPS } from "./videos/preview-sesandingan/timeline";
 import { DURATION as IH_DURATION, FPS as IH_FPS } from "./videos/iklan-hastrans/timeline";
 import { DURATION as IE_DURATION, FPS as IE_FPS } from "./videos/ingonentok/timeline";
 import { DURATION as FV_DURATION, FPS as FV_FPS } from "./videos/fiviz/timeline";
@@ -191,6 +193,14 @@ export const RemotionRoot: React.FC = () => {
         component={IklanHastrans}
         durationInFrames={IH_DURATION}
         fps={IH_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="PreviewSesandingan"
+        component={PreviewSesandingan}
+        durationInFrames={PS_DURATION}
+        fps={PS_FPS}
         width={theme.width}
         height={theme.height}
       />
