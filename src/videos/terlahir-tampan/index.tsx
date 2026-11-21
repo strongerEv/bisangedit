@@ -1,5 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
+import { sfx } from "../../components/sfx";
 import { Watermark } from "../../components/Watermark";
 import { S01 } from "./scenes/S01";
 import { MARKERS as M, SCENES, sec, SFX, TYPE_CPS, type SceneId } from "./timeline";
@@ -32,7 +33,7 @@ export const TerlahirTampan: React.FC = () => (
     })}
     {SFX.map((x, i) => (
       <Sequence key={`sfx${i}`} name={`sfx ${x.src.split("/").pop()}`} from={sec(x.at)} durationInFrames={sec(x.dur ?? 2.5)}>
-        <Audio src={x.src.startsWith("http") ? x.src : staticFile(x.src)} volume={x.vol ?? 1} />
+        <Audio src={x.src.startsWith("http") ? sfx(x.src) : staticFile(x.src)} volume={x.vol ?? 1} />
       </Sequence>
     ))}
     {TICKS.map((at, i) => (
