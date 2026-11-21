@@ -23,7 +23,7 @@ const STAND_L: Pose = { head: -6, armL: [-18, 8], armR: [16, -8], legL: [-12, 4]
 const PHONE: Pose = { head: 28, armL: [-20, 8], armR: [-40, -110], legL: [-12, 4], legR: [12, -4] };
 
 /** Mobil sport tampak samping (menghadap kanan). `driver` = kepala + lengan di jendela; `tag` = aksesori kepala. */
-const Car: React.FC<{ x: number; y: number; w: number; wheel?: number; driver?: boolean; tag?: "cap" | "bun"; style?: React.CSSProperties }> = ({ x, y, w, wheel = 0, driver, tag, style }) => (
+export const Car: React.FC<{ x: number; y: number; w: number; wheel?: number; driver?: boolean; tag?: "cap" | "bun"; style?: React.CSSProperties }> = ({ x, y, w, wheel = 0, driver, tag, style }) => (
   <svg viewBox="0 0 300 110" width={w} height={(w * 110) / 300} style={{ position: "absolute", left: x, top: y, overflow: "visible", ...style }}>
     <ellipse cx={150} cy={100} rx={140} ry={7} fill="#000" opacity={0.5} />
     <path d="M10 78 Q12 60 40 56 L95 52 Q120 28 160 26 L205 28 Q235 32 262 54 L285 60 Q296 64 294 78 L294 84 Q292 90 285 90 L15 90 Q8 90 8 84 Z" fill={K.red} />

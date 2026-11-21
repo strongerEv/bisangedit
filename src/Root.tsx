@@ -24,6 +24,10 @@ import { KesabaranBisnis } from "./videos/kesabaran-bisnis";
 import { TanggaKekayaan } from "./videos/tangga-kekayaan";
 import { PriaDiMobil } from "./videos/pria-di-mobil";
 import { SatuPersen } from "./videos/satu-persen";
+import { KayaTakTerlihat } from "./videos/kaya-tak-terlihat";
+import { DURATION as KT_DURATION, FPS as KT_FPS } from "./videos/kaya-tak-terlihat/timeline";
+import { UangBekerja } from "./videos/uang-bekerja";
+import { DURATION as UB_DURATION, FPS as UB_FPS } from "./videos/uang-bekerja/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -251,6 +255,22 @@ export const RemotionRoot: React.FC = () => {
         component={SatuPersen}
         durationInFrames={SP_DURATION}
         fps={SP_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="KayaTakTerlihat"
+        component={KayaTakTerlihat}
+        durationInFrames={KT_DURATION}
+        fps={KT_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="UangBekerja"
+        component={UangBekerja}
+        durationInFrames={UB_DURATION}
+        fps={UB_FPS}
         width={theme.width}
         height={theme.height}
       />
