@@ -20,6 +20,8 @@ import { DURATION as MA_DURATION, FPS as MA_FPS } from "./videos/masjid-almisbah
 import { IklanHastrans } from "./videos/iklan-hastrans";
 import { PreviewSesandingan } from "./videos/preview-sesandingan";
 import { TerlahirTampan } from "./videos/terlahir-tampan";
+import { KesabaranBisnis } from "./videos/kesabaran-bisnis";
+import { DURATION as KB_DURATION, FPS as KB_FPS } from "./videos/kesabaran-bisnis/timeline";
 import { DURATION as TT_DURATION, FPS as TT_FPS } from "./videos/terlahir-tampan/timeline";
 import { DURATION as PS_DURATION, FPS as PS_FPS } from "./videos/preview-sesandingan/timeline";
 import { DURATION as IH_DURATION, FPS as IH_FPS } from "./videos/iklan-hastrans/timeline";
@@ -211,6 +213,14 @@ export const RemotionRoot: React.FC = () => {
         component={TerlahirTampan}
         durationInFrames={TT_DURATION}
         fps={TT_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="KesabaranBisnis"
+        component={KesabaranBisnis}
+        durationInFrames={KB_DURATION}
+        fps={KB_FPS}
         width={theme.width}
         height={theme.height}
       />
