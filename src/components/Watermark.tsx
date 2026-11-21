@@ -2,11 +2,11 @@ import React from "react";
 import { theme } from "./theme";
 
 /**
- * Watermark brand Youcanbuild (lihat STYLE.md → Watermark).
- * Teks biasa "© Youcanbuild", kecil, opacity 50%, tengah-bawah (y ±1650) — bukan di pojok supaya tidak bisa
- * dibuang dengan crop. `dark` = latar gelap → teks putih. Hanya untuk video brand Youcanbuild.
+ * Watermark brand (lihat STYLE.md → Watermark). Default "© Youcanbuild"; `text` untuk akun lain (mis. "@yumust").
+ * Teks biasa, kecil, opacity 50%, tengah-bawah (y ±1650) — bukan di pojok supaya tidak bisa dibuang dengan crop.
+ * `dark` = latar gelap → teks putih.
  */
-export const Watermark: React.FC<{ dark?: boolean; y?: number }> = ({ dark, y = 1650 }) => (
+export const Watermark: React.FC<{ dark?: boolean; y?: number; text?: string }> = ({ dark, y = 1650, text = "© Youcanbuild" }) => (
   <div
     style={{
       position: "absolute",
@@ -24,6 +24,6 @@ export const Watermark: React.FC<{ dark?: boolean; y?: number }> = ({ dark, y = 
       zIndex: 50,
     }}
   >
-    © Youcanbuild
+    {text}
   </div>
 );
