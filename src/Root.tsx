@@ -22,6 +22,8 @@ import { PreviewSesandingan } from "./videos/preview-sesandingan";
 import { TerlahirTampan } from "./videos/terlahir-tampan";
 import { KesabaranBisnis } from "./videos/kesabaran-bisnis";
 import { TanggaKekayaan } from "./videos/tangga-kekayaan";
+import { PriaDiMobil } from "./videos/pria-di-mobil";
+import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
 import { DURATION as KB_DURATION, FPS as KB_FPS } from "./videos/kesabaran-bisnis/timeline";
 import { DURATION as TT_DURATION, FPS as TT_FPS } from "./videos/terlahir-tampan/timeline";
@@ -231,6 +233,14 @@ export const RemotionRoot: React.FC = () => {
         component={TanggaKekayaan}
         durationInFrames={TK_DURATION}
         fps={TK_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="PriaDiMobil"
+        component={PriaDiMobil}
+        durationInFrames={PM_DURATION}
+        fps={PM_FPS}
         width={theme.width}
         height={theme.height}
       />
