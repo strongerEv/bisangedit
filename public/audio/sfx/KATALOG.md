@@ -51,7 +51,7 @@ Sebagian adalah suara meme populer — cocok untuk konten lucu, hindari untuk vi
 | `windowsXpError` | `windows-xp-error.wav` | 0.99 | Error Windows XP |
 | `yippee` | `yippee.wav` | 2.65 | Sorak "yippee" |
 
-## B. Sintetis buatan sendiri (43 efek)
+## B. Sintetis buatan sendiri (51 efek)
 Dibuat dari nol oleh `scripts/buat-sfx.py` (numpy) — bebas hak cipta. Ubah/tambah efek di skrip itu lalu jalankan ulang.
 
 | Pakai | File | Detik | Kegunaan |
@@ -99,8 +99,16 @@ Dibuat dari nol oleh `scripts/buat-sfx.py` (numpy) — bebas hak cipta. Ubah/tam
 | `syn("klakson")` | `syn-klakson.wav` | 0.56 | Klakson tiin-tiin |
 | `syn("kamera")` | `syn-kamera.wav` | 0.40 | Jepret kamera |
 | `syn("kertas")` | `syn-kertas.wav` | 0.70 | Kertas dibalik / diremas |
+| `syn("gergaji")` | `syn-gergaji.wav` | 0.45 | Satu tarikan gergaji kayu |
+| `syn("asah")` | `syn-asah.wav` | 0.70 | Mengasah logam / gergaji |
+| `syn("kayu-jatuh")` | `syn-kayu-jatuh.wav` | 0.35 | Potongan kayu jatuh (tok) |
+| `syn("katak")` | `syn-katak.wav` | 0.50 | Katak ribbit-ribbit |
+| `syn("telan")` | `syn-telan.wav` | 0.35 | Gluk! menelan |
+| `syn("rewind")` | `syn-rewind.wav` | 0.90 | Putar ulang / mundurkan waktu |
+| `syn("gong")` | `syn-gong.wav` | 3.00 | Gong lembut (Asia, pembuka) |
+| `syn("akord")` | `syn-akord.wav` | 2.20 | Akord harmonis (semua bertemu) |
 
-## Urutan di file dengar (out/katalog-sfx.m4a)
+## Urutan di file dengar (out/katalog-sfx.m4a — 8 efek terbaru belum termasuk)
 
 | Dengar | File | Kegunaan |
 |---|---|---|

@@ -165,6 +165,18 @@ save("klakson", np.concatenate([hk(0.16), np.zeros(int(SR * 0.08)), hk(0.32)]), 
 t = T(0.4); save("kamera", place(0.4, [(0, hp(noise(0.04), 2) * np.exp(-T(0.04) * 120)), (0.09, hp(noise(0.06), 3) * np.exp(-T(0.06) * 80))]), 0.6, "Jepret kamera")
 t = T(0.7); save("kertas", hp(noise(0.7), 5) * (0.4 + 0.6 * np.abs(np.sin(2 * np.pi * 7 * t))) * np.sin(np.pi * t / 0.7), 0.4, "Kertas dibalik / diremas")
 
+# ---------------- tambahan (gergaji, katak, ikigai) ----------------
+t = T(0.45); save("gergaji", hp(noise(0.45), 3) * (0.35 + 0.65 * np.abs(np.sin(2 * np.pi * 2.2 * t))) * lp(np.abs(np.sin(2 * np.pi * 90 * t)), 4) * env(len(t), 0.02, 0.05), 0.55, "Satu tarikan gergaji kayu")
+t = T(0.7); save("asah", hp(noise(0.7), 2) * (0.5 + 0.5 * np.sin(2 * np.pi * 3 * t) ** 2) * env(len(t), 0.05, 0.1) * 0.7 + np.sin(2 * np.pi * 3400 * t) * 0.05, 0.4, "Mengasah logam / gergaji")
+t = T(0.35); save("kayu-jatuh", lp(np.sin(2 * np.pi * (180 - 200 * t) * t) * np.exp(-t * 18) + noise(0.35) * np.exp(-t * 30) * 0.5, 6), 0.7, "Potongan kayu jatuh (tok)")
+rib = lambda: tone(np.full(int(SR * 0.09), 1.0) * 0 + 300 + 120 * np.sign(np.sin(2 * np.pi * 45 * T(0.09))), 0.09, "saw") * env(int(SR * 0.09), 0.005, 0.02)
+save("katak", place(0.5, [(0, lp(rib(), 8)), (0.16, lp(rib(), 8))]), 0.55, "Katak ribbit-ribbit")
+t = T(0.35); save("telan", np.sin(2 * np.pi * np.cumsum(500 - 900 * t) / SR) * np.exp(-t * 8) * env(len(t), 0.01, 0.05), 0.55, "Gluk! menelan")
+rw = whoosh(0.9, 30, 4)[::-1] * 0.6 + tone(1800 - 1500 * (T(0.9) / 0.9) ** 0.5, 0.9, "saw") * 0.15 * np.sin(np.pi * T(0.9) / 0.9)
+save("rewind", rw, 0.55, "Putar ulang / mundurkan waktu")
+t = T(3.0); save("gong", sum(np.sin(2 * np.pi * f * t) * a for f, a in [(110, 1), (164, 0.5), (233, 0.35), (311, 0.2)]) * np.exp(-t * 1.3) * env(len(t), 0.01, 0.3), 0.7, "Gong lembut (Asia, pembuka)")
+save("akord", place(2.2, [(0, bell(f, 2.0, 2.2) * 0.6) for f in [523, 659, 784, 1047]]), 0.5, "Akord harmonis (semua bertemu)")
+
 # Daftar untuk dilengkapi ke KATALOG.md (nama, durasi, kegunaan)
 for name, dur, desc in MADE:
     print(f"syn-{name}.wav\t{dur:.2f}\t{desc}")

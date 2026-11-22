@@ -34,6 +34,12 @@ import { SisihkanDulu } from "./videos/sisihkan-dulu";
 import { DURATION as SD_DURATION, FPS as SD_FPS } from "./videos/sisihkan-dulu/timeline";
 import { PikiranNyata } from "./videos/pikiran-nyata";
 import { DURATION as PN_DURATION, FPS as PN_FPS } from "./videos/pikiran-nyata/timeline";
+import { AsahGergaji } from "./videos/asah-gergaji";
+import { DURATION as AG_DURATION, FPS as AG_FPS } from "./videos/asah-gergaji/timeline";
+import { MakanKatak } from "./videos/makan-katak";
+import { DURATION as KK_DURATION, FPS as KK_FPS } from "./videos/makan-katak/timeline";
+import { Ikigai } from "./videos/ikigai";
+import { DURATION as IG_DURATION, FPS as IG_FPS } from "./videos/ikigai/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -301,6 +307,30 @@ export const RemotionRoot: React.FC = () => {
         component={PikiranNyata}
         durationInFrames={PN_DURATION}
         fps={PN_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="AsahGergaji"
+        component={AsahGergaji}
+        durationInFrames={AG_DURATION}
+        fps={AG_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="MakanKatak"
+        component={MakanKatak}
+        durationInFrames={KK_DURATION}
+        fps={KK_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="Ikigai"
+        component={Ikigai}
+        durationInFrames={IG_DURATION}
+        fps={IG_FPS}
         width={theme.width}
         height={theme.height}
       />
