@@ -28,6 +28,12 @@ import { KayaTakTerlihat } from "./videos/kaya-tak-terlihat";
 import { DURATION as KT_DURATION, FPS as KT_FPS } from "./videos/kaya-tak-terlihat/timeline";
 import { UangBekerja } from "./videos/uang-bekerja";
 import { DURATION as UB_DURATION, FPS as UB_FPS } from "./videos/uang-bekerja/timeline";
+import { ZonaNyaman } from "./videos/zona-nyaman";
+import { DURATION as ZN_DURATION, FPS as ZN_FPS } from "./videos/zona-nyaman/timeline";
+import { SisihkanDulu } from "./videos/sisihkan-dulu";
+import { DURATION as SD_DURATION, FPS as SD_FPS } from "./videos/sisihkan-dulu/timeline";
+import { PikiranNyata } from "./videos/pikiran-nyata";
+import { DURATION as PN_DURATION, FPS as PN_FPS } from "./videos/pikiran-nyata/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -271,6 +277,30 @@ export const RemotionRoot: React.FC = () => {
         component={UangBekerja}
         durationInFrames={UB_DURATION}
         fps={UB_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="ZonaNyaman"
+        component={ZonaNyaman}
+        durationInFrames={ZN_DURATION}
+        fps={ZN_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="SisihkanDulu"
+        component={SisihkanDulu}
+        durationInFrames={SD_DURATION}
+        fps={SD_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="PikiranNyata"
+        component={PikiranNyata}
+        durationInFrames={PN_DURATION}
+        fps={PN_FPS}
         width={theme.width}
         height={theme.height}
       />
