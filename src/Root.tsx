@@ -40,6 +40,8 @@ import { MakanKatak } from "./videos/makan-katak";
 import { DURATION as KK_DURATION, FPS as KK_FPS } from "./videos/makan-katak/timeline";
 import { Ikigai } from "./videos/ikigai";
 import { DURATION as IG_DURATION, FPS as IG_FPS } from "./videos/ikigai/timeline";
+import { MahirProdukDigital } from "./videos/mahir-produk-digital";
+import { DURATION as MPD_DURATION, FPS as MPD_FPS } from "./videos/mahir-produk-digital/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -331,6 +333,14 @@ export const RemotionRoot: React.FC = () => {
         component={Ikigai}
         durationInFrames={IG_DURATION}
         fps={IG_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="MahirProdukDigital"
+        component={MahirProdukDigital}
+        durationInFrames={MPD_DURATION}
+        fps={MPD_FPS}
         width={theme.width}
         height={theme.height}
       />
