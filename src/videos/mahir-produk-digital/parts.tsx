@@ -2,7 +2,32 @@ import React from "react";
 import { AbsoluteFill, Img, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { enterAt } from "../../components/motion";
 import { theme } from "../../components/theme";
-import { CAPTIONS, POSE_AT, wordsOf } from "./timeline";
+import { CAPTIONS, POSE_AT } from "./timeline";
+
+export type Cap = { t0: number; t1: number; text: string };
+export type PoseAt = { at: number; pose: string; side?: "kiri" | "kanan" };
+
+const syl = (w: string) => {
+  const s = w.toLowerCase().replace(/[^a-z0-9]/g, "");
+  if (/^\d+$/.test(s)) return s.length === 2 ? 4 : 3; // "24"/"30" = dua/tiga puluh empat
+  if (s === "follow" || s === "file") return 2;
+  if (s === "ai") return 2;
+  return Math.max(1, (s.replace(/ai|au/g, "A").match(/[aiueoA]/g) ?? []).length);
+};
+
+/** Kata-kata satu klausa dengan waktu mulai masing-masing (proporsional suku kata). `hi` = kata kunci (bertanda *). */
+export const wordsOf = (c: Cap) => {
+  const raw = c.text.split(" ");
+  const ss = raw.map(syl);
+  const tot = ss.reduce((a, b) => a + b, 0);
+  let acc = 0;
+  return raw.map((r, i) => {
+    const m = r.match(/^\*(.+)\*(.*)$/);
+    const w = { text: m ? m[1] + m[2] : r, hi: !!m, at: c.t0 + ((c.t1 - c.t0) * acc) / tot };
+    acc += ss[i];
+    return w;
+  });
+};
 
 // Akun @mahirambilpeluang — gaya mengikuti referensi/mahir-layout-kartu-grid.mp4: latar putih berkotak dengan lantai
 // berperspektif, kartu putih, stempel, subtitle karaoke, karakter sticker di pojok bawah.
@@ -72,13 +97,13 @@ export const Title: React.FC<{ text: string; at: number; until: number }> = ({ t
 };
 
 /** Subtitle karaoke: kata yang sudah diucapkan hitam, yang sedang diucapkan biru bergaris bawah, berikutnya abu-abu. */
-export const Caption: React.FC<{ top?: number }> = ({ top = 1050 }) => {
+export const Caption: React.FC<{ top?: number; captions?: Cap[] }> = ({ top = 1050, captions = CAPTIONS }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
-  const idx = CAPTIONS.findIndex((c, i) => t >= c.t0 - 0.05 && t < (CAPTIONS[i + 1]?.t0 ?? 99) - 0.05);
+  const idx = captions.findIndex((c, i) => t >= c.t0 - 0.05 && t < (captions[i + 1]?.t0 ?? 99) - 0.05);
   if (idx < 0) return null;
-  const c = CAPTIONS[idx];
+  const c = captions[idx];
   const words = wordsOf(c);
   const p = spring({ frame: frame - Math.round((c.t0 - 0.05) * fps), fps, config: { damping: 14, mass: 0.5 } });
   return (
@@ -100,19 +125,20 @@ export const Caption: React.FC<{ top?: number }> = ({ top = 1050 }) => {
   );
 };
 
-/** Karakter sticker di pojok kiri bawah: ganti pose dengan efek pop + garis kejut kuning. */
-export const Character: React.FC = () => {
+/** Karakter sticker di pojok bawah (kiri/kanan sesuai `side`): ganti pose dengan efek pop + garis kejut kuning. */
+export const Character: React.FC<{ poses?: PoseAt[] }> = ({ poses = POSE_AT }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
-  const cur = POSE_AT.reduce((a, p) => (t >= p.at ? p : a), POSE_AT[0]);
+  const cur: PoseAt = poses.reduce<PoseAt>((a, p) => (t >= p.at ? p : a), poses[0]);
+  const right = cur.side === "kanan";
   const pop = spring({ frame: frame - Math.round(cur.at * fps), fps, config: { damping: 9, mass: 0.5 } });
   const enter = enterAt(frame, fps, 0, 0.5);
   const breathe = 1 + 0.012 * Math.sin(t * 2.4);
   const burst = Math.max(0, 1 - (t - cur.at) / 0.45);
   const W = 330;
   return (
-    <div style={{ position: "absolute", left: 18, top: 1452, width: W, height: 420, opacity: enter }}>
+    <div style={{ position: "absolute", left: right ? 1080 - 18 - W : 18, top: 1452, width: W, height: 420, opacity: enter }}>
       <div style={{ position: "absolute", left: 60, right: 60, bottom: -6, height: 34, borderRadius: "50%", background: "rgba(20,30,60,0.12)", filter: "blur(4px)" }} />
       <Img
         src={img(`pose-${cur.pose}.png`)}
@@ -120,7 +146,7 @@ export const Character: React.FC = () => {
       />
       {burst > 0
         ? [-35, 0, 35].map((a, i) => (
-            <div key={i} style={{ position: "absolute", left: W - 40 + Math.sin((a * Math.PI) / 180) * 30, top: 30 - Math.cos((a * Math.PI) / 180) * 10, width: 8, height: 34, borderRadius: 4, background: C.yellow, opacity: burst, transform: `rotate(${a + 20}deg) translateY(${-14 * (1 - burst)}px)` }} />
+            <div key={i} style={{ position: "absolute", left: (right ? 30 : W - 40) + Math.sin(((right ? -a : a) * Math.PI) / 180) * 30, top: 30 - Math.cos((a * Math.PI) / 180) * 10, width: 8, height: 34, borderRadius: 4, background: C.yellow, opacity: burst, transform: `rotate(${right ? -a - 20 : a + 20}deg) translateY(${-14 * (1 - burst)}px)` }} />
           ))
         : null}
     </div>

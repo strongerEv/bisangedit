@@ -37,27 +37,6 @@ export const CAPTIONS: { t0: number; t1: number; text: string }[] = [
   { t0: 37.73, t1: 38.52, text: "dan komen *MAU.*" },
 ];
 
-const syl = (w: string) => {
-  const s = w.toLowerCase().replace(/[^a-z0-9]/g, "");
-  if (/^\d+$/.test(s)) return 4; // "24" = dua puluh empat
-  if (s === "follow" || s === "file") return 2;
-  return Math.max(1, (s.replace(/ai|au/g, "A").match(/[aiueoA]/g) ?? []).length);
-};
-
-/** Kata-kata satu klausa dengan waktu mulai masing-masing (proporsional suku kata). `hi` = kata kunci (bertanda *). */
-export const wordsOf = (c: (typeof CAPTIONS)[number]) => {
-  const raw = c.text.split(" ");
-  const ss = raw.map(syl);
-  const tot = ss.reduce((a, b) => a + b, 0);
-  let acc = 0;
-  return raw.map((r, i) => {
-    const m = r.match(/^\*(.+)\*(.*)$/);
-    const w = { text: m ? m[1] + m[2] : r, hi: !!m, at: c.t0 + ((c.t1 - c.t0) * acc) / tot };
-    acc += ss[i];
-    return w;
-  });
-};
-
 // Babak & momen penting (detik).
 export const MARKERS = {
   hook: 0.2,

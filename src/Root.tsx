@@ -42,6 +42,8 @@ import { Ikigai } from "./videos/ikigai";
 import { DURATION as IG_DURATION, FPS as IG_FPS } from "./videos/ikigai/timeline";
 import { MahirProdukDigital } from "./videos/mahir-produk-digital";
 import { DURATION as MPD_DURATION, FPS as MPD_FPS } from "./videos/mahir-produk-digital/timeline";
+import { MahirNiche } from "./videos/mahir-niche";
+import { DURATION as MN_DURATION, FPS as MN_FPS } from "./videos/mahir-niche/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -341,6 +343,14 @@ export const RemotionRoot: React.FC = () => {
         component={MahirProdukDigital}
         durationInFrames={MPD_DURATION}
         fps={MPD_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="MahirNiche"
+        component={MahirNiche}
+        durationInFrames={MN_DURATION}
+        fps={MN_FPS}
         width={theme.width}
         height={theme.height}
       />
