@@ -44,6 +44,10 @@ import { MahirProdukDigital } from "./videos/mahir-produk-digital";
 import { DURATION as MPD_DURATION, FPS as MPD_FPS } from "./videos/mahir-produk-digital/timeline";
 import { MahirNiche } from "./videos/mahir-niche";
 import { DURATION as MN_DURATION, FPS as MN_FPS } from "./videos/mahir-niche/timeline";
+import { MahirRiset } from "./videos/mahir-riset";
+import { DURATION as MR_DURATION, FPS as MR_FPS } from "./videos/mahir-riset/timeline";
+import { MahirBikinAi } from "./videos/mahir-bikin-ai";
+import { DURATION as MBA_DURATION, FPS as MBA_FPS } from "./videos/mahir-bikin-ai/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -351,6 +355,22 @@ export const RemotionRoot: React.FC = () => {
         component={MahirNiche}
         durationInFrames={MN_DURATION}
         fps={MN_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="MahirRiset"
+        component={MahirRiset}
+        durationInFrames={MR_DURATION}
+        fps={MR_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="MahirBikinAi"
+        component={MahirBikinAi}
+        durationInFrames={MBA_DURATION}
+        fps={MBA_FPS}
         width={theme.width}
         height={theme.height}
       />
