@@ -92,27 +92,19 @@ const M = MARKERS;
 export const SCENES = [{ id: "S01", label: "Studi kasus 1", start: 0, end: M.akhir }] as const;
 export type SceneId = (typeof SCENES)[number]["id"];
 
-/** Kamera papan (koordinat dunia papan 1400×1650; s = skala). */
-export const WORLD = { w: 1400, h: 1650 };
-const FULL = { cx: 700, cy: 825, s: 0.52 };
+/** Kamera papan (dunia papan tegak 1080×3200; jendela = layar penuh 1080×1600). Lebar papan = lebar layar, jadi
+ *  pada skala 1 kamera hanya bergeser naik-turun per baris — tidak ada foto/catatan yang terpotong. */
+export const WORLD = { w: 1080, h: 3200 };
+const FULL = { cx: 540, cy: 1600, s: 0.5 };
 export const CAM: CamKey[] = [
   { t: 0, ...FULL },
-  { t: 0.7, cx: 300, cy: 390, s: 1.35 },
+  { t: 0.7, cx: 540, cy: 800, s: 1 },
   { t: M.bahas, ...FULL },
-  { t: M.nama, cx: 300, cy: 400, s: 1.6 },
-  { t: M.followers, cx: 330, cy: 310, s: 2.4 },
-  { t: M.views, cx: 700, cy: 380, s: 1.5 },
-  { t: M.strategi1, cx: 680, cy: 750, s: 0.95 },
-  { t: M.rumah, cx: 180, cy: 770, s: 1.9 },
-  { t: M.keluarga, cx: 460, cy: 770, s: 1.9 },
-  { t: M.kegiatan, cx: 740, cy: 770, s: 1.9 },
-  { t: M.pengin, cx: 700, cy: 760, s: 0.95 },
-  { t: M.penasaran, cx: 190, cy: 1120, s: 1.5 },
-  { t: M.halaman, cx: 560, cy: 1110, s: 1.0 },
-  { t: M.bingung, cx: 900, cy: 1100, s: 1.4 },
-  { t: M.bertingkat, cx: 370, cy: 1480, s: 1.25 },
-  { t: M.strategi2, cx: 900, cy: 1470, s: 1.45 },
-  { t: M.meta, cx: 1050, cy: 1470, s: 1.0 },
+  { t: M.nama, cx: 540, cy: 800, s: 1 },
+  { t: M.strategi1, cx: 540, cy: 1180, s: 1 },
+  { t: M.penasaran, cx: 540, cy: 1780, s: 1 },
+  { t: M.bertingkat, cx: 540, cy: 2300, s: 1 },
+  { t: M.strategi2, cx: 540, cy: 2400, s: 1 },
   { t: M.pelajaran, ...FULL },
 ];
 

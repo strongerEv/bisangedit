@@ -29,16 +29,18 @@ Referensi:
   dibacakan VO.** Di bawahnya: nama akun (mis. `@nrhouse_id`).
 - Aksen tetap: merah pin/benang (`#E5484D`), kuning label (`#F5C400`), biru template (`#2457D6`) untuk chip/karaoke.
 
-### Gerak kamera
-- Seluruh papan berada dalam satu "kamera" yang **zoom in / zoom out & geser (pan)** ke polaroid yang sedang dibahas
-  (scale 1 → 1,6–2,2, easing halus ~0,6 dtk), lalu kembali ke tampilan penuh saat pindah babak.
-- Saat polaroid baru disebut: polaroid "ditempel" (jatuh sedikit + pop), pin menancap, benang merah memanjang ke pin
-  sebelumnya.
-- Screenshot panjang (landing page) boleh **di-scroll pelan di dalam polaroid** atau dipotong per bagian.
+### Gerak kamera (revisi user)
+- **Papan tampil penuh satu layar** (jendela 1080×1600, subtitle di bawahnya). Papan dibuat **tegak**, lebarnya = lebar
+  layar, jadi kamera hanya **geser naik-turun per baris** pada skala 1 — **tidak boleh ada polaroid/catatan yang
+  terpotong** tepi layar.
+- Zoom out penuh (skala ±0,5) hanya untuk pembuka, "mari kita bahas", dan bagian pelajaran.
+- Bukti yang sedang dibahas ditandai **lingkaran spidol merah** (digambar), bukan zoom dekat yang memotong tetangganya.
+- Saat polaroid baru disebut: polaroid "ditempel" (jatuh sedikit + pop), pin menancap, benang merah memanjang.
+- Screenshot panjang (landing page) boleh **di-scroll pelan di dalam polaroid**.
 
 ### Teks & suara
-- Subtitle karaoke template mahir tetap dipakai (di bawah papan, y ±1050).
-- Karakter @mahirambilpeluang tetap di bawah, kiri/kanan bergantian.
+- Subtitle karaoke template mahir di bawah papan (y ±1650); watermark di y ±1860.
+- Karakter @mahirambilpeluang **hanya di awal (hook)** sebagai pembuka, lalu hilang — sisanya papan penuh.
 - SFX khas papan bukti: pin tancap (pop/klik), kertas ditempel (kertas), benang ditarik (swish), kamera
   rana (kamera), zoom (whoosh), stempel (pukulan). Tetap variasikan antar video.
 

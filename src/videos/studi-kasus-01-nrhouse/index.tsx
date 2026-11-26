@@ -21,6 +21,6 @@ export const StudiKasus01Nrhouse: React.FC = () => (
       );
     })}
     <SeriAudio fps={FPS} sfxList={SFX} typed={[]} cps={30} tick="syn:ketik" />
-    <Watermark text="@mahirambilpeluang" />
+    <Watermark text="@mahirambilpeluang" y={1860} />
   </AbsoluteFill>
 );

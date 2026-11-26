@@ -50,6 +50,10 @@ export const BoardView: React.FC<{ keys: CamKey[]; x: number; y: number; w: numb
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const c = camAt(keys, frame / fps);
+  // jaga kamera tetap di dalam papan: kalau papan lebih lebar/tinggi dari jendela, jangan tampilkan area di luar papan
+  const lim = (v: number, view: number, world: number) => (world * c.s <= view ? world / 2 : Math.min(world - view / (2 * c.s), Math.max(view / (2 * c.s), v)));
+  c.cx = lim(c.cx, w, worldW);
+  c.cy = lim(c.cy, h, worldH);
   return (
     <div style={{ position: "absolute", left: x, top: y, width: w, height: h, overflow: "hidden", borderRadius: 30, ...style }}>
       <div style={{ position: "absolute", left: 0, top: 0, width: worldW, height: worldH, transformOrigin: "0 0", transform: `translate(${w / 2 - c.cx * c.s}px, ${h / 2 - c.cy * c.s}px) scale(${c.s})` }}>
@@ -184,5 +188,21 @@ export const InkStamp: React.FC<{ x: number; y: number; at: number; until?: numb
       <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: size, lineHeight: 1.0, whiteSpace: "nowrap" }}>{children}</div>
       {sub ? <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 700, fontSize: size * 0.34, marginTop: 6, opacity: 0.85 }}>{sub}</div> : null}
     </div>
+  );
+};
+
+/** Lingkaran spidol merah (digambar) untuk menandai bukti yang sedang dibahas. */
+export const Circle: React.FC<{ x: number; y: number; w: number; h: number; at: number; until?: number; color?: string }> = ({ x, y, w, h, at, until = 99, color = PB.red }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps;
+  if (t < at || t > until) return null;
+  const p = interpolate(t, [at, at + 0.4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const out = Math.min(1, Math.max(0, (until - t) / 0.2));
+  const d = `M ${w * 0.55} ${h * 0.02} C ${w * 1.02} ${h * 0.0}, ${w * 1.04} ${h * 0.95}, ${w * 0.5} ${h * 0.98} C ${w * -0.04} ${h * 1.0}, ${w * -0.03} ${h * 0.06}, ${w * 0.62} ${h * 0.06}`;
+  return (
+    <svg width={w} height={h} style={{ position: "absolute", left: x, top: y, overflow: "visible", zIndex: 58, opacity: out }}>
+      <path d={d} fill="none" stroke={color} strokeWidth={9} strokeLinecap="round" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - p} />
+    </svg>
   );
 };
