@@ -45,6 +45,10 @@
 ### Penutup
 - Setiap video diakhiri **logo + CTA** (misal "Follow untuk part berikutnya") **[ISI CTA default]**
 
+### Seri Studi Kasus (@mahirambilpeluang)
+- Video "Studi Kasus N" memakai gaya papan bukti di `STYLE-STUDI-KASUS.md` (polaroid, pin, benang merah, zoom in/out),
+  tetap di atas latar putih.
+
 ## 2. BOLEH
 
 - Kartu/panel dengan sudut membulat, bayangan halus
