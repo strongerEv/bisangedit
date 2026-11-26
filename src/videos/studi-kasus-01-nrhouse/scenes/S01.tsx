@@ -47,7 +47,7 @@ const Tangga: React.FC = () => {
         );
       })}
       {t >= M.kenalan ? <div style={{ position: "absolute", left: 10, top: 0, fontSize: 44, color: PB.red, clipPath: `inset(0 ${100 - interpolate(t, [M.kenalan, M.kenalan + 0.5], [0, 100], clamp)}% 0 0)` }}>↓ murah = kenalan 👋</div> : null}
-      {t >= M.percaya ? <div style={{ position: "absolute", right: 0, top: 50, fontSize: 44, color: PB.red, transform: "rotate(-6deg)", clipPath: `inset(0 ${100 - interpolate(t, [M.percaya, M.percaya + 0.5], [0, 100], clamp)}% 0 0)` }}>mahal = percaya 🤝 ↑</div> : null}
+      {t >= M.percaya ? <div style={{ position: "absolute", left: 410, top: 30, fontSize: 44, color: PB.red, transform: "rotate(-4deg)", clipPath: `inset(0 ${100 - interpolate(t, [M.percaya, M.percaya + 0.5], [0, 100], clamp)}% 0 0)` }}>mahal = percaya 🤝 ↑</div> : null}
     </div>
   );
 };
@@ -80,7 +80,7 @@ export const S01: React.FC<{ dur: number }> = () => {
 
           {/* ===== Baris 1: profil ===== */}
           <Polaroid x={40} y={290} w={560} h={420} src={sk("p1-profil.jpg")} at={1.0} rot={-3} caption="@nrhouse_id" />
-          <InkStamp x={330} y={600} at={M.omzet + 0.9} until={M.nama} size={60} rot={-9} sub="sumber: @nrhouse_id">
+          <InkStamp x={540} y={560} at={M.omzet + 0.9} until={M.nama} size={54} rot={-7} sub="sumber: @nrhouse_id">
             OMZET PULUHAN JUTA
             <br />/ 15 HARI
           </InkStamp>
@@ -99,15 +99,15 @@ export const S01: React.FC<{ dur: number }> = () => {
           <Tape x={40} y={830} at={M.strategi1 + 0.2} size={50} rot={-1}>
             STRATEGI 1
           </Tape>
-          <Hand x={360} y={826} at={M.branding} size={64} rot={-2} color={PB.red}>
+          <Hand x={470} y={826} at={M.branding} size={64} rot={-2} color={PB.red}>
             personal branding
           </Hand>
           <Polaroid x={30} y={940} w={290} h={320} src={sk("p2-rumah.jpg")} at={M.hidupnya + 0.1} rot={-4} caption="rumah" pos="50% 40%" />
           <Polaroid x={380} y={950} w={290} h={320} src={sk("p3-keluarga.jpg")} at={M.hidupnya + 0.5} rot={3} caption="keluarga" pos="50% 30%" />
           <Polaroid x={730} y={940} w={290} h={320} src={sk("p4-konten.jpg")} at={M.hidupnya + 0.9} rot={-2} caption="daily" pos="50% 10%" />
           {t >= M.kegiatan + 0.3 ? (
-            <div style={{ position: "absolute", left: 930, top: 1250, width: 130, textAlign: "center", opacity: enterAt(frame, fps, M.kegiatan + 0.3, 0.3), transform: `rotate(8deg) scale(${enterAt(frame, fps, M.kegiatan + 0.3, 0.3)})`, zIndex: 45 }}>
-              <Img src={sk("testimoni.jpg")} style={{ width: 120, height: 120, borderRadius: 60, border: "6px solid white", boxShadow: "2px 6px 10px rgba(0,0,0,0.3)", objectFit: "cover" }} />
+            <div style={{ position: "absolute", left: 935, top: 1345, width: 120, textAlign: "center", opacity: enterAt(frame, fps, M.kegiatan + 0.3, 0.3), transform: `rotate(8deg) scale(${enterAt(frame, fps, M.kegiatan + 0.3, 0.3)})`, zIndex: 45 }}>
+              <Img src={sk("testimoni.jpg")} style={{ width: 104, height: 104, borderRadius: 52, border: "6px solid white", boxShadow: "2px 6px 10px rgba(0,0,0,0.3)", objectFit: "cover" }} />
               <div style={{ fontFamily: HAND, fontWeight: 700, fontSize: 34, color: PB.ink }}>Testimoni</div>
             </div>
           ) : null}
@@ -159,8 +159,8 @@ export const S01: React.FC<{ dur: number }> = () => {
             <div style={{ position: "absolute", left: 620, top: 2660, width: 420, height: 220 }}>
               <div style={{ position: "absolute", left: 0, top: 30, fontSize: 110, transform: `rotate(-12deg) scale(${enterAt(frame, fps, M.meta, 0.3)})` }}>📣</div>
               {Array.from({ length: 14 }, (_, i) => {
-                const a = -0.9 + (i % 7) * 0.28;
-                const d = interpolate(t, [M.meta + 0.2 + (i % 3) * 0.2, M.meta + 1.6 + (i % 3) * 0.2], [0, 1], clamp) * (120 + (i % 4) * 45);
+                const a = -0.7 + (i % 7) * 0.2;
+                const d = interpolate(t, [M.meta + 0.2 + (i % 3) * 0.2, M.meta + 1.6 + (i % 3) * 0.2], [0, 1], clamp) * (90 + (i % 4) * 35);
                 return <div key={i} style={{ position: "absolute", left: 120 + Math.cos(a) * d, top: 100 + Math.sin(a) * d, width: 28, height: 28, borderRadius: 14, background: i % 2 ? "#2457D6" : PB.red, opacity: d > 0 ? 1 : 0 }} />;
               })}
             </div>
@@ -173,7 +173,7 @@ export const S01: React.FC<{ dur: number }> = () => {
           <Thread pts={[[830, 2908], [310, 1358]]} at={M.meta + 2.3} dur={0.6} w={WORLD.w} h={WORLD.h} />
           <Thread pts={[[830, 2908], [304, 2686]]} at={M.meta + 2.5} dur={0.4} w={WORLD.w} h={WORLD.h} />
 
-          <HazardTape x={-30} y={3110} w={1140} rot={-1.2} text="STUDI KASUS" drift={t * 40} />
+          <HazardTape x={-30} y={3300} w={1140} rot={-1.2} text="STUDI KASUS" drift={t * 40} />
         </BoardView>
 
         {/* ===== Pelajaran (di atas papan) ===== */}

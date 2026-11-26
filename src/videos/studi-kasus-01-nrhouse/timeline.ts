@@ -92,19 +92,33 @@ const M = MARKERS;
 export const SCENES = [{ id: "S01", label: "Studi kasus 1", start: 0, end: M.akhir }] as const;
 export type SceneId = (typeof SCENES)[number]["id"];
 
-/** Kamera papan (dunia papan tegak 1080×3200; jendela = layar penuh 1080×1600). Lebar papan = lebar layar, jadi
- *  pada skala 1 kamera hanya bergeser naik-turun per baris — tidak ada foto/catatan yang terpotong. */
-export const WORLD = { w: 1080, h: 3200 };
-const FULL = { cx: 540, cy: 1600, s: 0.5 };
+/** Kamera papan (dunia papan tegak 1080×3400; jendela 1080×1600). Skala ≤ 1 → lebar papan selalu muat di layar,
+ *  kamera bergerak naik-turun + zoom halus (0,94–1) mengikuti bukti yang sedang dibahas — tidak ada yang terpotong. */
+export const WORLD = { w: 1080, h: 3400 };
+const FULL = { cx: 540, cy: 1700, s: 0.47 };
 export const CAM: CamKey[] = [
   { t: 0, ...FULL },
-  { t: 0.7, cx: 540, cy: 800, s: 1 },
+  { t: 0.7, cx: 540, cy: 760, s: 0.94 },
+  { t: 2.6, cx: 540, cy: 720, s: 0.98 },
   { t: M.bahas, ...FULL },
-  { t: M.nama, cx: 540, cy: 800, s: 1 },
-  { t: M.strategi1, cx: 540, cy: 1180, s: 1 },
-  { t: M.penasaran, cx: 540, cy: 1780, s: 1 },
-  { t: M.bertingkat, cx: 540, cy: 2300, s: 1 },
-  { t: M.strategi2, cx: 540, cy: 2400, s: 1 },
+  { t: M.nama, cx: 540, cy: 760, s: 0.95 },
+  { t: M.followers, cx: 540, cy: 700, s: 1 },
+  { t: M.views, cx: 540, cy: 760, s: 0.96 },
+  { t: M.strategi1, cx: 540, cy: 1130, s: 0.94 },
+  { t: M.hidupnya, cx: 540, cy: 1180, s: 0.97 },
+  { t: M.rumah, cx: 540, cy: 1150, s: 1 },
+  { t: M.keluarga, cx: 540, cy: 1175, s: 0.98 },
+  { t: M.kegiatan, cx: 540, cy: 1200, s: 1 },
+  { t: M.pengin, cx: 540, cy: 1250, s: 0.95 },
+  { t: M.penasaran, cx: 540, cy: 1760, s: 0.94 },
+  { t: M.halaman, cx: 540, cy: 1790, s: 0.98 },
+  { t: M.bingung, cx: 540, cy: 1830, s: 1 },
+  { t: M.bertingkat, cx: 540, cy: 2280, s: 0.95 },
+  { t: M.offline, cx: 540, cy: 2300, s: 1 },
+  { t: M.kenalan, cx: 540, cy: 2320, s: 0.97 },
+  { t: M.strategi2, cx: 540, cy: 2560, s: 0.95 },
+  { t: M.meta, cx: 540, cy: 2600, s: 1 },
+  { t: M.meta + 2.0, cx: 540, cy: 2580, s: 0.96 },
   { t: M.pelajaran, ...FULL },
 ];
 
