@@ -54,6 +54,8 @@ import { MahirHarga } from "./videos/mahir-harga";
 import { DURATION as MH_DURATION, FPS as MH_FPS } from "./videos/mahir-harga/timeline";
 import { MahirKesalahan } from "./videos/mahir-kesalahan";
 import { DURATION as MK2_DURATION, FPS as MK2_FPS } from "./videos/mahir-kesalahan/timeline";
+import { StudiKasus01Nrhouse } from "./videos/studi-kasus-01-nrhouse";
+import { DURATION as SK1_DURATION, FPS as SK1_FPS } from "./videos/studi-kasus-01-nrhouse/timeline";
 import { DURATION as SP_DURATION, FPS as SP_FPS } from "./videos/satu-persen/timeline";
 import { DURATION as PM_DURATION, FPS as PM_FPS } from "./videos/pria-di-mobil/timeline";
 import { DURATION as TK_DURATION, FPS as TK_FPS } from "./videos/tangga-kekayaan/timeline";
@@ -401,6 +403,14 @@ export const RemotionRoot: React.FC = () => {
         component={MahirKesalahan}
         durationInFrames={MK2_DURATION}
         fps={MK2_FPS}
+        width={theme.width}
+        height={theme.height}
+      />
+      <Composition
+        id="StudiKasus01Nrhouse"
+        component={StudiKasus01Nrhouse}
+        durationInFrames={SK1_DURATION}
+        fps={SK1_FPS}
         width={theme.width}
         height={theme.height}
       />
